@@ -1,0 +1,231 @@
+@font-face {
+    font-family: poppins;
+    src: url("/fonts/Poppins-Medium.ttf");
+}
+@font-face {
+    font-family: quicksand;
+    src: url("/fonts/Quicksand.ttf");
+}
+
+.poppins{
+    font-family: poppins;
+}
+
+
+.quicksand, body{
+    font-family: quicksand;
+}
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.signup::-webkit-scrollbar {
+    width: 3px;
+}
+
+.signup::-webkit-scrollbar-track {
+    /* background-color: grey; */
+}
+
+.signup::-webkit-scrollbar-thumb {
+    background-color: #0d6dfd93;
+    /* border-radius: 2px; */
+    
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-au{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.h-100{
+    height: 100%!important;
+}
+
+.list-unstyled a{
+    color: #4f4f4f;
+}
+
+.btn-outline-primary:hover{
+    background-color: #1266F1;
+    color: white;
+}
+
+.layanan li a{
+    transition: 0.3s;
+}
+
+.logo-img {
+    width: 40px;
+}
+
+.card-kost {
+    /* background-color: #f5f3f0; */
+    font-size: 14px;
+    
+}
+
+.card-kost table tr {
+    padding: 0px !important;
+    margin: 0px !important;
+    /* justify-content: ; */
+}
+
+.card-kost img {
+    height: 150px;
+    /* width: 50px; */
+    object-fit: cover;
+}
+
+.card-kost .card-body{
+    padding: 5px!important;
+}
+
+.daerah-layanan {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E23E57;
+    color: white;
+    font-size: 23px;
+    transition: 0.2s;
+    margin-bottom: 11px;
+
+}
+
+/* .daerah-layanan:hover {
+    background-color: #522546;
+    color:#E23E57;
+} */
+
+.cl-gold{
+    color: #ffdb58;
+}
+
+.cl-gray{
+    color: #9c9c9c;
+}
+
+.active-kost{
+    background-color: #FCE38A;
+}
+
+.active-kost:hover{
+
+}
+
+.tes{
+    /* display: flex; */
+}
+
+.kamar{
+    height: 170px;
+    margin-bottom: 20px ;
+    width: 100%;
+    /* padding: 20px; */
+    background-color: #F3F1F5;
+    
+}
+
+.kamar .row{
+    height: 100%;
+}
+
+.kamar .row img{
+    /* height: fit-content; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.foto-kamar{
+    height: 200px;
+}
+
+.detail-bayar td{
+    padding: 10px 0!important;
+    width: 50%;
+}
+
+.tabel-detail td{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.category-sekitar a{
+    /* color: #505050; */
+    font-size: 20px;
+}
+
+.category-sekitar a span{
+    color: #505050;
+}
+
+
+.category-sekitar a:hover{
+    color: #198754!important;
+
+}
+
+.all-item{
+    /* height: 100px; */
+}
+
+.gambar-all{
+    width: 350px;
+    object-fit: cover;
+    height:100% ;
+}
+
+.ajukan-sewa{
+    align-self: flex-start;
+    /* position: sticky; */
+    top: 50px;
+}
+
+@media (min-width: 576px) {
+    /* .daerah-layanan {
+        width: 300px;
+    } */
+    .foto-kamar{
+        height: 300px;
+    }
+
+    .lebar-deskripsi{
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .daerah-layanan{
+        width: calc(33% - 10px);
+    }
+
+    .kamar{
+        height: 150px;
+        width: calc(50% - 10px);
+    }
+
+    .foto-kamar{
+        height: 400px;
+    }
+
+    .lebar-deskripsi{
+        width: 25%;
+    }
+}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1200px) {}
