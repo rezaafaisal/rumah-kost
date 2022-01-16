@@ -11,9 +11,20 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-pretty-tabs.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/flatpickr.min.css') }}">
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/flatpickr.js') }}"></script>
+    <script src="{{ asset('') }}sweetalert/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
+
+    <!-- ============= alert peringatan gagal ================ -->
+    <?php if (session()->has('alert-gagal-dua')): ?>
+        <div class="alert-gagal" data-flashdata="{{ session()->get('alert-gagal-dua') }}">
+        </div>
+    <?php endif ?>
 
     <div class="container d-flex flex-column justify-content-center">
         <div class="row justify-content-start py-5">
@@ -21,6 +32,7 @@
                 <h2>Temankost.id</h2>
                 <form action="{{route('register')}}" method="POST" class="p-4">
                     @csrf
+                    <input type="hidden" name="key" id="form16" class="form-control form-control-lg" value="regist-dua" />
                     <div class="form-outline">
                         <input type="text" name="nama_lengkap" id="form16" class="form-control form-control-lg" required />
                         <label class="form-label" for="form16">Nama Lengkap</label>
@@ -68,7 +80,8 @@
     </div>
 </body>
 <script src="{{ asset('js/script.js') }}"></script>
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('js/mdb.min.js') }}"></script>
-
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/mdb.min.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/jquery-pretty-tabs.js') }}"></script>
 </html>

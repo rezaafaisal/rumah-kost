@@ -8,8 +8,8 @@ Beranda
 
 
 <?php if (session()->has('alert-gagal')): ?>
-<div class="alert-gagal" data-flashdata="{{ session()->get('alert-gagal') }}">
-</div>
+    <div class="alert-gagal" data-flashdata="{{ session()->get('alert-gagal') }}">
+    </div>
 <?php endif ?>
 
 <div class="container" style="padding-top: 100px">

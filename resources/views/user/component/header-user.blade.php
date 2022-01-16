@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery-pretty-tabs.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/jqueryTab/jquery.tabs.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/flatpickr.min.css') }}">
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/flatpickr.js') }}"></script>

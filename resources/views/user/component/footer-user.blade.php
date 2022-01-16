@@ -13,4 +13,5 @@
     <script src="{{ asset('js/mdb.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/jquery-pretty-tabs.js') }}"></script>
+    <script src="{{ asset('vendor/jqueryTab/jquery.tabs.min.js') }}"></script>
 </html>

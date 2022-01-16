@@ -79,8 +79,9 @@
                 <h4 class="text-center fw-bold">Daftar Akun Baru</h4>
                 <form action="{{route('register')}}" method="POST" class="p-4">
                     @csrf
+                    <input type="hidden" name="key" id="form16" class="form-control form-control-lg" value="regist-satu" />
                     <div class="form-outline">
-                        <input type="text" name="nama_lengkap" id="form16" class="form-control form-control-lg" required />
+                        <input type="text" name="nama_lengkap" id="form16" class="form-control form-control-lg"  required />
                         <label class="form-label" for="form16">Nama Lengkap</label>
                     </div>
                     <div class="form-outline mt-4">

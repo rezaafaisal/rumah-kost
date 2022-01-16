@@ -22,6 +22,10 @@ Route::prefix('user')->group(function () {
 
 });
 
+Route::get('/tes', function(){
+    return view('tes');
+});
+
 
 Route::get  ('/login'                ,'C_Akses@index');
 Route::get  ('/log-out'                ,'C_Akses@logOut')->name('log-out');
@@ -67,7 +71,7 @@ Route::get('/info-kost', function(){
 
 
 
-Route::get('/signup', function(){
+Route::get('/daftar', function(){
     return view('signup', [
         'title' => 'Daftar'
     ]);

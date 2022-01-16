@@ -60,32 +60,42 @@ class C_Akses extends Controller
         ]);
 
             if ($req->input('key') == "yes") {
-                $login_User = User::where('email', $validated["email"])
-                                        ->orWhere('no_wa', $validated["email"])
-                                        ->first();
-                if($login_User){
-                    if(Hash::check($validated["password"], $login_User->password)){
-                        $login_randomToken='';
-                        $login_id_token = Hash::make($validated["email"]);
-                        $login_randomToken = 'users'."_".$login_id_token;
 
-                        $login_User_update_token = User::where('id',$login_User->id)
-                                                                        ->update([
-                                                                        'remember_token'   => $login_randomToken
-                                                                        ]);
-                                            if($login_User_update_token){
-                                                Session::flash('alert-token', $login_randomToken);
-                                                $req->session()->flash('alert-login-berhasil', 'Login Success Akun.');
-                                                return redirect('/login');
-                                            }
-                    }else{
-                        Session::flash('notif-gagal', 'Password Anda Salah.!! Silahakan Input Ulang');
-                        return redirect('/login');
-                    }
-                }else{
-                    Session::flash('notif-gagal', 'Akun Yang Anda Masukkan Salah.!! Silahkan Mendaftar');
-                    return redirect('/login');
-                }
+                
+                        $login_User = User::where('email', $validated["email"])->
+                                                orWhere('no_wa', $validated["email"])
+                                                ->first();
+                            
+                        if($login_User){
+                    
+                            if ($login_User->status== 'aktif') {
+                                if(Hash::check($validated["password"], $login_User->password)){
+                                    $login_randomToken='';
+                                    $login_id_token = Hash::make($validated["email"]);
+                                    $login_randomToken = 'users'."_".$login_id_token;
+
+                                    $login_User_update_token = User::where('id',$login_User->id)
+                                                                                    ->update([
+                                                                                    'remember_token'   => $login_randomToken
+                                                                                    ]);
+                                                        if($login_User_update_token){
+                                                            Session::flash('alert-token', $login_randomToken);
+                                                            $req->session()->flash('alert-login-berhasil', 'Login Success Akun.');
+                                                            return redirect('/login');
+                                                        }
+                                }else{
+                                    Session::flash('notif-gagal', 'Password Anda Salah.!! Silahakan Input Ulang');
+                                    return redirect('/login');
+                                }
+                            }else{
+                                Session::flash('notif-gagal', 'Akun Anda Belum di Aktifkan.!!');
+                                return redirect('/login');
+                            }
+                        }else{
+                            Session::flash('notif-gagal', 'Email Yang Anda Masukkan Salah.!! Silahkan Mendaftar');
+                            return redirect('/login');
+                        }
+                    
             }else{
                 Session::flash('notif-gagal', 'Silahkan Centang Ceklis Jika Bukan Robot');
                 return redirect('/login');
@@ -103,6 +113,9 @@ class C_Akses extends Controller
             "password"          => "required|min:5",
             "upassword"         => "required|min:5"
         ]);
+
+        $key = $req->input('key');
+        echo $key;
 
         if ($validated["password"] == $validated["upassword"]) {
 
@@ -127,18 +140,20 @@ class C_Akses extends Controller
                                                 $user->no_wa = $validated["no_hp"];
                                                 $user->password = Hash::make($validated["password"]);
                                                 $user->show_password = $validated["password"];
+                                                $user->status = 'tidak';
                                             $user->save();
 
-                                            Session::flash('notif-success', 'Berhasil Daftar.!! Terimakasih '.$validated["nama_lengkap"]);
+                                            Session::flash('notif-success', 'Berhasil Daftar.!! Terimakasih '.$validated["nama_lengkap"].', Silahkan Menunggu 1 x 24 Jam Untuk di Aktifkan Oleh Tim Kami');
                                             return redirect('/login');
                                         }
-
-
-
-                                    
                                 }else{
-                                    Session::flash('alert-gagal', 'Email atau Nomor Sudah Terdaftar');
-                                    return redirect('/');
+                                    if ($key == "regist-dua") {
+                                        Session::flash('alert-gagal-dua', 'Email atau Nomor Sudah Terdaftar');
+                                        return redirect('/daftar');
+                                    }else{
+                                        Session::flash('alert-gagal', 'Email atau Nomor Sudah Terdaftar');
+                                        return redirect('/');
+                                    }
                                 }
                 }else{
                     $userPerbandingan = User::where('email', $validated["email"])->orWhere('no_wa', $validated["no_hp"])->first();
@@ -150,19 +165,30 @@ class C_Akses extends Controller
                             $user->no_wa = $validated["no_hp"];
                             $user->password = Hash::make($validated["password"]);
                             $user->show_password = $validated["password"];
+                            $user->status = 'tidak';
                         $user->save();
 
-                        Session::flash('notif-success', 'Berhasil Daftar.!! Terimakasih '.$validated["nama_lengkap"]);
-                        return redirect('/login');
+                            Session::flash('notif-success', 'Berhasil Daftar.!! Terimakasih '.$validated["nama_lengkap"].', Silahkan Menunggu 1 x 24 Jam Untuk di Aktifkan Oleh Tim Kami');
+                            return redirect('/login');
 
                     }else{
-                        Session::flash('alert-gagal', 'Email atau Nomor Sudah Terdaftar');
-                        return redirect('/');
+                        if ($key == "regist-dua") {
+                            Session::flash('alert-gagal-dua', 'Email atau Nomor Sudah Terdaftar');
+                            return redirect('/daftar');
+                        }else{
+                            Session::flash('alert-gagal', 'Email atau Nomor Sudah Terdaftar');
+                            return redirect('/');
+                        }
                     }
                 }
         }else{
-            Session::flash('alert-gagal', 'Password Tidak Sama');
-            return redirect('/');
+            if ($key == "regist-dua") {
+                Session::flash('alert-gagal-dua', 'Password Tidak Sama');
+                return redirect('/daftar');
+            }else{
+                Session::flash('alert-gagal', 'Password Tidak Sama');
+                return redirect('/');
+            }
         }
     }
 

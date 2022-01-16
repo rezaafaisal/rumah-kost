@@ -174,6 +174,12 @@ $(document).ready(function () {
 
     })
 
+    $('.tabs__item').click(function(){
+        // $('.tabs__content').fade()
+        // $('.tabs_active').fade()
+        
+    })
+
     
     
 

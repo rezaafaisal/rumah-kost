@@ -30,11 +30,11 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('show_password');
-            // $table->enum("status", 
-            //                         ['aktif',
-            //                          'tidak'
-            //                         ]
-            //             );
+            $table->enum("status", 
+                                    ['aktif',
+                                     'tidak'
+                                    ]
+                        );
             $table->rememberToken();
             $table->timestamps();
         });

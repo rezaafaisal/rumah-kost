@@ -75,7 +75,7 @@
                         </button>
 
                         <div class="form-group mt-4 text-center">
-                            <span>Belum punya akun? </span><a href="/signup">Daftar</a>
+                            <span>Belum punya akun? </span><a href="/daftar">Daftar</a>
                         </div>
 
                     </form>
