@@ -11,9 +11,12 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-pretty-tabs.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/jqueryTab/jquery.tabs.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/flatpickr.min.css') }}">
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/flatpickr.js') }}"></script>
+    <script src="{{ asset('') }}sweetalert/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
@@ -24,4 +27,7 @@
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/mdb.min.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/jquery-pretty-tabs.js') }}"></script>
+    <script src="{{ asset('vendor/jqueryTab/jquery.tabs.min.js') }}"></script>
 </html>
